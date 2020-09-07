@@ -120,6 +120,10 @@ class HashTable:
             last_node.next = new_node
         else:
             self.bucket_array[bucket_index] = new_node
+
+        self.item_count += 1
+        if self.get_load_factor() > 0.7:
+            self.resize(self.get_num_slots() * 2)
  
     def delete(self, key):
         """
@@ -144,6 +148,10 @@ class HashTable:
                         self.bucket_array[bucket_index] = existing_node.next
                 last_node = existing_node
                 existing_node = existing_node.next
+
+        self.item_count -= 1
+        if self.get_load_factor() < 0.2:
+            self.resize(max(int(self.get_num_slots() / 2), MIN_CAPACITY))
 
     def get(self, key):
         """
