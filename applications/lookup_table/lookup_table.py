@@ -17,7 +17,7 @@ def slowfun(x, y):
     output, but completes quickly instead of taking ages to run.
     """
     # Your code here
-    key = f'{x},{y}'
+    key = (x,y)
 
     if key in lookup_table:
         return lookup_table[key]
