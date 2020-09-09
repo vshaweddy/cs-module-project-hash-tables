@@ -7,7 +7,6 @@ def word_count(s):
     # Lowercase all words
     s = s.lower()
     word_list = s.split()
-    print(word_list)
 
     for word in word_list:
         if word not in lookup_table:
