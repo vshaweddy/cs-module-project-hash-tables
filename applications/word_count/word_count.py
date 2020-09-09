@@ -1,6 +1,19 @@
 def word_count(s):
-    # Your code here
+    lookup_table = {}
+    # Replace the special characters with spacing
+    for char in '":;,.-+=/\|[]{}()*^&\n':
+        s = s.replace(char, ' ')
+    
+    # Lowercase all words
+    s = s.lower()
+    word_list = s.split()
+    print(word_list)
 
+    for word in word_list:
+        if word not in lookup_table:
+            lookup_table[word] = 0
+        lookup_table[word] += 1
+    return lookup_table
 
 
 if __name__ == "__main__":
