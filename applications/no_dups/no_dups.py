@@ -1,5 +1,21 @@
 def no_dups(s):
     # Your code here
+    lookup_table = set()
+    
+    # Lowercase all words
+    s = s.lower()
+    word_list = s.split()
+
+    result = []
+
+    for word in word_list:
+        if word in lookup_table:
+            continue
+        else:
+            lookup_table.add(word)
+            result.append(word)
+    
+    return " ".join(result)
 
 
 
